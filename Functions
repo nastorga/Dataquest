@@ -1,0 +1,11 @@
+1: Overview
+
+Instructions
+Read the file dictionary.txt into a string variable named vocabulary.
+Then, display vocabulary using the print() function.
+
+Solution:
+
+f = open("dictionary.txt", "r")
+vocabulary = f.read()
+print(vocabulary)
