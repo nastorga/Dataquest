@@ -19,3 +19,24 @@ for name in planet_names:
         long_names.append (name)
     else:
         short_names.append (name)
+        
+10: Counting With Dictionaries
+
+Count up how many times each element occurs in the dictionary named pantry that appears in the code block below. 
+You'll need to:
+Create an empty dictionary named pantry_counts.
+Loop through each item in pantry.
+If the item appears in pantry_counts, add 1 to the value in pantry_counts for the item's key.
+Otherwise, add the item to pantry_counts as a key, with the value 1.
+When finished, each item in pantry will have its own key in pantry_counts, 
+and its value will be the number of times the item appears in pantry.
+
+Result:
+pantry = ["apple", "orange", "grape", "apple", "orange", "apple", "tomato", "potato", "grape"]
+pantry_counts = {}
+
+for  item in pantry:
+    if item in pantry_counts:
+        pantry_counts[item] = pantry_counts[item] + 1
+    else:
+    
