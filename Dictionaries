@@ -1,0 +1,21 @@
+9: Practicing With The Else Statement
+
+Append any names in planet_names that are longer than 5 characters to long_names. 
+Otherwise, append the names to short_names. To accomplish this:
+Loop through each item in planet_names.
+Use the len() function to find the length of the item.
+If the length is greater than 5, append the item to long_names.
+Otherwise, append it to short_names.
+When complete, short_names should contain any planet names less than 6 characters long, 
+and long_names should contain any planet names 6 characters or longer.
+
+Result:
+
+planet_names = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Neptune", "Uranus"]
+short_names = []
+long_names = []
+for name in planet_names:
+    if len(name) > 5:
+        long_names.append (name)
+    else:
+        short_names.append (name)
