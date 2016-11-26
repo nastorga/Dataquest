@@ -52,3 +52,11 @@ When finished, weather_counts should contain a key for each different type of we
 along with its associated frequency. 
 Here's a preview of how the result should format the weather_counts dictionary (note that you'll be using real values, 
 rather than the dummy ones below):
+
+Solution:
+Weather_counts = {}
+for item in weather:
+    if item in weather_counts:
+        weather_counts[item] = weather_counts[item] + 1
+    else:
+        weather_counts[item] = 1
