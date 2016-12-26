@@ -39,3 +39,77 @@ tokenized_vocabulary = tokenize(vocabulary, clean_chars)
 for ts in tokenized_story:
     if ts not in tokenized_vocabulary:
         misspelled_words.append(ts)
+****************************************************************************************************************************************
+
+Create a function called spell_check():
+Include the following arguments:
+vocabulary_file - the location of the vocabulary text file
+text_file - the location of the text we want to spell check
+special_characters - with the default value of the list [",",".","'",";","\n"].
+In the function body:
+Create an empty list and assign it to misspelled_words.
+Read both files into strings using the open() and read() functions: open(vocabulary_file).read()
+Call the tokenize() function to tokenize the string containing the vocabulary. Assign the result to tokenized_vocabulary.
+Call the tokenize() function to clean and tokenize the string containing the text we want to spell check. Assign the result to tokenized_text.
+Write a for loop that iterates over tokenized_text. For each token in tokenized_text:
+Write an if statement that checks whether the token isn't in tokenized_vocabulary, and if it's not equal to ''.
+If it meets both criteria, append the token to misspelled_words.
+Outside the for loop, return misspelled_words.
+After we've written the function, call spell_check:
+Pass in story.txt as the text_file parameter.
+Pass in dictionary.txt as the vocabulary_file parameter.
+Use the default value for special_characters.
+Assign the result to final_misspelled_words.
+Use the print() function to display final_misspelled_words.
+Hint: Don't pass in a value for the special_characters argument. Allow the function to resort to the default value instead.
+
+def clean_text(text_string, special_characters):
+    cleaned_string = text_string
+    for string in special_characters:
+        cleaned_string = cleaned_string.replace(string, "")
+    cleaned_string = cleaned_string.lower()
+    return(cleaned_string)
+
+def tokenize(text_string, special_characters, clean=False):
+    cleaned_text = text_string
+    if clean:
+        cleaned_text = clean_text(text_string, special_characters)
+    tokens = cleaned_text.split(" ")
+    return(tokens)
+
+final_misspelled_words = []
+
+# Answer code
+def clean_text(text_string, special_characters):
+    cleaned_string = text_string
+    for string in special_characters:
+        cleaned_string = cleaned_string.replace(string, "")
+    cleaned_string = cleaned_string.lower()
+    return(cleaned_string)
+
+def tokenize(text_string, special_characters, clean=False):
+    cleaned_text = text_string
+    if clean:
+        cleaned_text = clean_text(text_string, special_characters)
+    tokens = cleaned_text.split(" ")
+    return(tokens)
+
+final_misspelled_words = []
+def spell_check(vocabulary_file, text_file, special_characters=[",",".","'",";","\n"]):
+    misspelled_words = []
+    vocabulary = open(vocabulary_file).read()
+    text = open(text_file).read()
+    
+    tokenized_vocabulary = tokenize(vocabulary, special_characters)
+    tokenized_text = tokenize(text, special_characters, True)
+    
+    for ts in tokenized_text:
+        if ts not in tokenized_vocabulary and ts != '':
+            misspelled_words.append(ts)
+    return(misspelled_words)
+
+final_misspelled_words = spell_check(vocabulary_file="dictionary.txt", text_file="story.txt")
+print(final_misspelled_words)
+
+
+
