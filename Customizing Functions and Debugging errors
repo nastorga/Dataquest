@@ -1,3 +1,5 @@
+3: Optional Arguments
+
 Modify the tokenize() function:
 Use an if statement to check whether clean is True. If so:
 Clean text_string using clean_text, and assign the returned string to a variable.
@@ -40,6 +42,7 @@ for ts in tokenized_story:
     if ts not in tokenized_vocabulary:
         misspelled_words.append(ts)
 ****************************************************************************************************************************************
+5: Practice: Creating A More Compact Spell Checker
 
 Create a function called spell_check():
 Include the following arguments:
@@ -99,7 +102,7 @@ def spell_check(vocabulary_file, text_file, special_characters=[",",".","'",";",
     misspelled_words = []
     vocabulary = open(vocabulary_file).read()
     text = open(text_file).read()
-    
+        
     tokenized_vocabulary = tokenize(vocabulary, special_characters)
     tokenized_text = tokenize(text, special_characters, True)
     
@@ -110,6 +113,13 @@ def spell_check(vocabulary_file, text_file, special_characters=[",",".","'",";",
 
 final_misspelled_words = spell_check(vocabulary_file="dictionary.txt", text_file="story.txt")
 print(final_misspelled_words)
+
+****************************************************************************************************************************************
+6: Types Of Errors
+
+
+
+
 
 
 
